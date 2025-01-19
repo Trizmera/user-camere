@@ -2,7 +2,8 @@ pipeline {
     agent any
 
     environment {
-        MAVEN_HOME = 'C:\Program Files\Maven'
+        JAVA_HOME = 'C:\\Program Files\\Java\\jdk-17'
+        MAVEN_HOME = 'C:\\Program Files\\Maven'
     }
 
     stages {
@@ -15,15 +16,15 @@ pipeline {
 
         stage('Build') {
             steps {
-                // Run Maven build
-                sh 'mvn clean package'
+                // Run Maven build with Java 17
+                bat 'mvn clean package'
             }
         }
 
         stage('Test') {
             steps {
                 // Run tests
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
 
